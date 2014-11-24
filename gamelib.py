@@ -19,13 +19,13 @@ class SimpleGame(object):
 
     pygame.init()
     self.clock = pygame.time.Clock()
-    self.surface = pygame.display.set_mode(self.window_size)
+    self.surface = pygame.display.set_mode(self.window_size, pygame.FULLSCREEN)
     pygame.display.set_caption(self.title)
     self.font = pygame.font.SysFont("monospace", 20) 
 
   def __handle_events(self):
     for event in pygame.event.get():
-      if event.type == QUIT:
+      if event.type == KEYDOWN and event.key == K_ESCAPE:
         self.terminate()   
   
   def run(self):
