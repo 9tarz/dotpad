@@ -1,0 +1,31 @@
+import pygame
+from pygame.locals import *
+
+class UI(object):
+
+  BLACK = pygame.Color('black')
+  WHITE = pygame.Color('white')
+  RED = pygame.Color('red')
+  GREY = pygame.Color('grey')
+
+
+  def __init__(self):
+    pass
+
+  def render(self, surface, notes):
+
+    pygame.draw.rect(surface, UI.RED, (0, 0, 60, 768))
+    pygame.draw.rect(surface, UI.BLACK, (60, 0, 240, 625))
+    for i in range(1,5):
+      pygame.draw.line(surface, UI.WHITE, (60*i, 0), (60*i, 768))
+    pygame.draw.line(surface, UI.WHITE, (60, 625), (1366, 625), 9)
+    for note in notes:
+      note.render(surface)
+    pygame.draw.rect(surface, UI.GREY, (60, 625, 240, 768))
+    surface.blit(score_image, (1000,10))
+
+  def show_score(self, font, score):
+
+    global score_image
+
+    score_image = font.render("Score = %d" % score, 0, UI.BLACK)
