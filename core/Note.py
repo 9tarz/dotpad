@@ -18,7 +18,7 @@ class Note(object):
     self.sound_note = sound_note
     self.sound_arr = []
     self.fl = fluidsynth.Synth()
-    self.sfid = self.fl.sfload("KawaiStereoGrand.sf2")
+    self.sfid = self.fl.sfload("sound/KawaiStereoGrand.sf2")
     self.pa = pyaudio.PyAudio()
     self.strm = self.pa.open(
         format = pyaudio.paInt16,
