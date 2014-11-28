@@ -19,7 +19,7 @@ class SimpleGame(object):
 
     pygame.init()
     self.clock = pygame.time.Clock()
-    self.surface = pygame.display.set_mode(self.window_size, pygame.FULLSCREEN)
+    self.surface = pygame.display.set_mode(self.window_size, pygame.FULLSCREEN|pygame.DOUBLEBUF)
     pygame.display.set_caption(self.title)
     self.font = pygame.font.SysFont("monospace", 20) 
 
@@ -32,12 +32,13 @@ class SimpleGame(object):
     self.init()
     while not self.is_terminated :
       self.__handle_events()
-      self.update()
       self.surface.fill(self.background_color)
       self.render(self.surface)
+      self.update()
       pygame.display.update()
       self.clock.tick(self.fps)
-   
+      pygame.display.flip()   
+
   def init(self):
 
     self.__game_init()
