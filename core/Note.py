@@ -15,8 +15,6 @@ class Note(object):
 
     self.rect = (60*self.row, self.y,  60, 20)
 
-    #self.rect = (60*self.row, self.y,  60, -50000)
-
     self.is_hit = False
     self.track = track
     self.sound_note = sound_note
@@ -39,8 +37,6 @@ class Note(object):
 
     self.rect = (60*self.row, self.y, 60, 20)
 
-    #self.rect = (60*self.row, self.y,  60, -50000)
-
   def render(self,surface):
 
     pygame.draw.rect(surface, pygame.Color('white'), self.rect)
@@ -50,11 +46,13 @@ class Note(object):
     SoundKeyThread(self).start()
 
   def play_sound(self):
+    
     self.sound_arr = []
     self.fl = fluidsynth.Synth()
     self.sfid = self.fl.sfload("sound/KawaiStereoGrand.sf2")
     self.pa = pyaudio.PyAudio()
     self.strm = self.pa.open(
+
         format = pyaudio.paInt16,
         channels = 2, 
         rate = 44100, 

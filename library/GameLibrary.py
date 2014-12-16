@@ -21,7 +21,7 @@ class SimpleGame(object):
     self.clock = pygame.time.Clock()
     self.surface = pygame.display.set_mode(self.window_size, pygame.FULLSCREEN|pygame.DOUBLEBUF)
     pygame.display.set_caption(self.title)
-    self.font = pygame.font.SysFont("monospace", 20) 
+    self.font = pygame.font.SysFont("monospace", 40) 
 
   def __handle_events(self):
     for event in pygame.event.get():

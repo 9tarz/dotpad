@@ -11,11 +11,11 @@ class UI(object):
 
   def __init__(self,font, score):
     
-    self.score_image = font.render("Score = %d" % score, 0, UI.BLACK)
+    self.score_image = font.render("Score = %.2f " % score, 0, UI.WHITE)
 
   def show_score(self, font, score):
 
-    self.score_image = font.render("Score = %d" % score, 0, UI.BLACK)
+    self.score_image = font.render("Score = %.2f " % score, 0, UI.WHITE)
 
   def render(self, surface, notes):
 
@@ -27,4 +27,4 @@ class UI(object):
     for note in notes:
       note.render(surface)
     pygame.draw.rect(surface, UI.GREY, (60, 625, 240, 768))
-    surface.blit(self.score_image, (1000,10))
+    surface.blit(self.score_image, (1000,50))

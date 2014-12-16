@@ -8,15 +8,13 @@ class Score(object):
     self.score = 0
 
   def get_score(self):
-    return int(self.score)
+    return (float(self.score)/207.0) * 100.0
 
   def note_collide(self, note):
     judment_line = []
     for i in range (1,5):
 
-      #judment_line.append(Rect(60*i,  625,   60,   143))
       judment_line.append(Rect(60*i,  625,   60,   80))
-
 
     #self.test_just(note)
 
@@ -36,16 +34,16 @@ class Score(object):
         if pygame.key.get_pressed()[K_d] and i  == 0:
           note.hit()
           note.play()
-          self.score += 100
+          self.score += 1
         elif pygame.key.get_pressed()[K_f] and i == 1:
           note.hit()
           note.play()
-          self.score += 100
+          self.score += 1
         elif pygame.key.get_pressed()[K_j] and i == 2:
           note.hit()
           note.play()
-          self.score += 100
+          self.score += 1
         elif pygame.key.get_pressed()[K_k] and i == 3:
           note.hit()
           note.play()
-          self.score += 100
+          self.score += 1
