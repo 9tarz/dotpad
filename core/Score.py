@@ -21,7 +21,6 @@ class Score(object):
     self.just(note, judment_line)
 
   def update(self, note):
-
     self.note_collide(note)
 
   def test_just(self, note):

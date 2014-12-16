@@ -30,7 +30,7 @@ class DotPadGame(SimpleGame):
    movie = pygame.movie.Movie('o2.mpg')
    movie_screen = pygame.Surface(movie.get_size()).convert()
    movie.set_display(movie_screen)
-   movie.set_volume(0.3)
+   movie.set_volume(0.5)
    global notes, score, ui
 
    c4  = 60
@@ -154,7 +154,6 @@ class DotPadGame(SimpleGame):
 
   def render(self,surface):
 
-    #surface.blit(movie_screen,(180,40))
     self.surface.blit(movie_screen,(180,40))
     ui.render(self.surface, notes)
 
@@ -165,6 +164,10 @@ class DotPadGame(SimpleGame):
       else :
         note.update(1./self.clock.get_fps())
       score.update(note)
+      #if note in notes :
+        #if note.is_hit :
+          #note.delete
+          #notes.remove(note)
     movie.play()
     ui.show_score(self.font, score.get_score())
 
